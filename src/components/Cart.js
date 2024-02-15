@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import React from "react";
 import cart from "/src/components/cart.css";
 
 const Cart = ({ cartItems }) => {
@@ -35,6 +36,7 @@ const Cart = ({ cartItems }) => {
 
     return (
         <>
+        <h3>Welcome to Cart</h3>
             <div className="cartCard">
                 {Object.values(itemQuantities).map(item => (
                     <div className="itemDetails" key={item.id}>

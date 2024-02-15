@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
+import React from "react";
 import Filters from "./Filters";
 import { log } from "console";
 import Cart from "./Cart";
 import proCards from "/src/components/proCards.css";
+import Limit from "./Limit";
 const ProCards = () => {
     const [Products, setProducts] = useState([]);
     const [Notify, setNotify] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [cartItems, setCartItems] = useState([]);
+    const [optionSelected, setOptionSelected] = useState("5");
 
     useEffect(() => {
         const fetchData = async () => {
@@ -17,13 +20,13 @@ const ProCards = () => {
             }
             const data = await fetch(apiUrl);
             const json = await data.json();
-            setProducts(json);
+            setProducts(json.slice(0, optionSelected));
             console.log(apiUrl);
             console.log(json);
             console.log(selectedCategory);
         };
         fetchData();
-    }, [selectedCategory]);
+    }, [selectedCategory, optionSelected]);
     
     useEffect(() => {
         console.log("Cart items updated:", cartItems);
@@ -57,6 +60,7 @@ const ProCards = () => {
                 </div>
             ))}
         </div>
+        <Limit setOptionSelected={setOptionSelected}/>
         <Cart cartItems={cartItems} />
         </div>
         

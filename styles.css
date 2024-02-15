@@ -77,3 +77,21 @@
     color: #fff; /* White text on hover */
     transform: scale(1.05); /* Slightly larger size on hover */
 }
+.limitDropDown{
+    padding: 8px 10px; /* Adjust padding as needed */
+    border: none;
+    border-radius: 5px; /* Add border radius */
+    background-color: white; /* Set background color */
+    font-size: 18px; /* Set font size */
+    font-weight: bold;
+    cursor: pointer; /* Change cursor to pointer on hover */
+    margin-top: 30px;
+    box-shadow: 0 4px 8px rgba(0, 86, 179, 0.1);
+}
+.limitContainer{
+    margin: auto;
+    padding: auto;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
