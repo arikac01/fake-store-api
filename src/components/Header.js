@@ -1,17 +1,23 @@
 import Filters from "./Filters";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import Cart from "./Cart";
 import Login from "/src/components/Login";
 import React from "react";
 
 const Header = () => {
+    const location = useLocation();
+    const isLoginPage = location.pathname === "/";
+    if (isLoginPage){
+        return null;
+    }
+
     return (
         <div className="header">
             <img />
-            <NavLink activeClassName='is-active' to="/home"><h3>Home</h3></NavLink>
-            <Link><h3>About</h3></Link>
+            <NavLink to="/home"><h3>Home</h3></NavLink>
             <NavLink to="/procards"><h3>Shopping</h3></NavLink>
-            <Link activeClassName='is-active' to="/"><h3>Login</h3></Link>
+            <NavLink to="/carts"><h3>Cart</h3></NavLink>
+            <NavLink to="/"><h3>Login</h3></NavLink>
         </div>
     )
 }

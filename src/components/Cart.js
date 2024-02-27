@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react";
 import React from "react";
 import cart from "/src/components/cart.css";
+import ProCards from "./ProCards";
 
 const Cart = ({ cartItems }) => {
     const [items, setItems] = useState([]);
+    
 
     useEffect(() => {
         const fetchCartItems = async () => {
+            if (!cartItems || !Array.isArray(cartItems)) {
+                return;
+            }
             const fetchedItems = [];
             for (const itemId of cartItems) {
                 const response = await fetch(`https://fakestoreapi.com/products/${itemId}`);

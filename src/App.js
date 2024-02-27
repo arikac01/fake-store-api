@@ -5,6 +5,7 @@ import ProCards from "./components/ProCards";
 import Header from "./components/Header";
 import Cart from "./components/Cart";
 import Login from "./components/Login";
+import Home from "./components/Home";
 
 const AppLayout = () => {
     return (
@@ -12,7 +13,9 @@ const AppLayout = () => {
                 <Header />
                 <Routes>
                     <Route path="/" element={<Login/>}/>
+                    <Route path="/home" element={<Home/>}/>
                     <Route path="/procards" element={<ProCards/>}/>
+                    <Route path="/carts" element={<Cart/>}/>
                 </Routes>
             </div>
 
